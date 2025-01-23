@@ -7,3 +7,9 @@ Currently it only has a function of:
 3. WARNING! it doesnt save on closing the program :3    (yes its a feature! :)
 
 Sensei, if you read this, I procrastinated
+
+使い方(how to use)
+1.  アプリを起動をします。Start the App.
+2. 日にちを選択してメモ機能利用できます。Select Date and use Note function.
+3. 全機能利用しました。you have used all the functions.
+4.  テッドトークにご覧いただいてありがとうございます。Thank you for coming to my TED talk.
