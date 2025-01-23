@@ -40,7 +40,7 @@ public class CalendarController {
     @FXML
     public void initialize() {
         currentYearMonth = YearMonth.now();  // Set the current month and year
-        // Call the method to populate the days of the week
+        populateDaysOfWeek();// Call the method to populate the days of the week
         updateCalendar();  // Update the calendar with the dates of the month
     }
 
@@ -56,12 +56,51 @@ public class CalendarController {
         updateCalendar();
     }
 
+    private void setupColumnConstraints(GridPane grid) {
+        grid.getColumnConstraints().clear();
+        for (int i = 0; i < 7; i++) {
+            ColumnConstraints column = new ColumnConstraints();
+            column.setPrefWidth(50); // Ensure consistent column width
+            grid.getColumnConstraints().add(column);
+        }
+    }
+
+    private void populateDaysOfWeek() {
+        // Clear any existing labels to avoid duplication
+        daysOfWeekGrid.getChildren().clear();
+        // Set matching column constraints
+        setupColumnConstraints(daysOfWeekGrid);
+
+        // Array of days of the week
+        String[] days = {"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"};
+
+        // Populate grid with labels for each day
+        for (int i = 0; i < days.length; i++) {
+            Label dayLabel = new Label(days[i]);
+            dayLabel.setStyle("-fx-font-weight: bold; -fx-alignment: center;");
+
+            // Center the label within the grid cell
+            dayLabel.setStyle("-fx-font-weight: bold; -fx-alignment: center; -fx-font-size: 14px;");
+            dayLabel.setMaxWidth(Double.MAX_VALUE);
+            dayLabel.setMaxHeight(Double.MAX_VALUE);
+            GridPane.setHalignment(dayLabel, javafx.geometry.HPos.CENTER); // Center horizontally
+            GridPane.setValignment(dayLabel, javafx.geometry.VPos.CENTER); // Center vertically
+
+            // Add the label to the grid in the appropriate column
+            daysOfWeekGrid.add(dayLabel, i, 0); // Row 0 for days of the week
+        }
+    }
+
+
     private void updateCalendar() {
         // Update Month and Year Label
         monthYearLabel.setText(currentYearMonth.getMonth().getDisplayName(TextStyle.FULL, Locale.getDefault()) + " " + currentYearMonth.getYear());
 
         // Clear previous calendar
         calendarGrid.getChildren().clear();
+
+        // Set matching column constraints
+        setupColumnConstraints(calendarGrid);
 
         // Set a fixed grid size (7 columns, 6 rows)
         calendarGrid.getColumnConstraints().clear();
