@@ -4,5 +4,6 @@ Currently it only has a function of:
 
 1. Being a Calendar
 2. Memo function for a date(each date has different memory so you can have multiple memos on different dates)
-3. WARNING! it doesnt save on closing the program :3    (yes its a feature :)
+3. WARNING! it doesnt save on closing the program :3    (yes its a feature! :)
 
+Sensei, if you read this, I procrastinated
